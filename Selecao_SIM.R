@@ -1,10 +1,11 @@
 
+#C√≥digo para sele√ß√£o dos numeradores do sistema SIM usando o elasticsearch - via linguagem R
+#As sele√ß√µes s√≥ contam com agrega√ß√£o por munic√≠pio de resid√™ncia, mas precisam tamb√©m da vari√°vel ano - ver com a equipe como resolver.
+
 require(ggplot2)
 library("elastic") 
 
 connect(es_host = "elasticsearch.icict.fiocruz.br", es_port = 8201, es_user = "r_user", es_pwd = "r_user", es_transport_schema = "https")
-#http://www.proadess.icict.fiocruz.br/index.php?pag=fic&cod=M05&tab=1 
-
 
 
 ################M01_N_SIM: Mortalidade infantil - com menos de um ano.################M
@@ -30,7 +31,7 @@ q<-'{"size":0,
 
 
 
-################M02_N_SIM: Mortalidade infantil - AtÈ 6 dias.#################
+################M02_N_SIM: Mortalidade infantil - At√© 6 dias.#################
 q<-'{"size":0, 
 "query":{ 
   "filtered":{ 
@@ -48,11 +49,11 @@ q<-'{"size":0,
     } 
 }
 }' 
-################M02_N_SIM: Mortalidade infantil - AtÈ 6 dias.#################
+################M02_N_SIM: Mortalidade infantil - At√© 6 dias.#################
 
 
 
-################M03_N_SIM: Mortalidade infantil - De 7 AtÈ 27 dias.#################
+################M03_N_SIM: Mortalidade infantil - De 7 At√© 27 dias.#################
 q<-'{"size":0, 
 "query":{ 
   "filtered":{ 
@@ -70,12 +71,12 @@ q<-'{"size":0,
     } 
 }
 }' 
-################M03_N_SIM: Mortalidade infantil - de 7 AtÈ 27 dias.#################
+################M03_N_SIM: Mortalidade infantil - de 7 At√© 27 dias.#################
 
 
 
 
-################M04_N_SIM: Mortalidade infantil - De 28 AtÈ 364 dias.#################
+################M04_N_SIM: Mortalidade infantil - De 28 At√© 364 dias.#################
 q<-'{"size":0, 
 "query":{ 
   "filtered":{ 
@@ -93,10 +94,10 @@ q<-'{"size":0,
     } 
 }
 }' 
-################M04_N_SIM: Mortalidade infantil - De 28 AtÈ 364 dias.#################
+################M04_N_SIM: Mortalidade infantil - De 28 At√© 364 dias.#################
 
 
-################M05_N_SIM: Mortalidade Diarreica - De 0 AtÈ 4 anos.#################
+################M05_N_SIM: Mortalidade Diarreica - De 0 At√© 4 anos.#################
 q<-'{"size":0, 
 "query":{ 
   "filtered":{ 
@@ -112,12 +113,12 @@ q<-'{"size":0,
   } 
 }
 }'
-################M05_N_SIM: Mortalidade Diarreica - De 0 AtÈ 4 anos.#################
+################M05_N_SIM: Mortalidade Diarreica - De 0 At√© 4 anos.#################
 
 
 
 
-################M05_D_SIM: Mortalidade Diarreica - De 0 AtÈ 4 anos.#################
+################M05_D_SIM: Mortalidade Diarreica - De 0 At√© 4 anos.#################
 
 
 q<-'{"size":0, 
@@ -135,7 +136,7 @@ q<-'{"size":0,
 }
 }'
 
-################M05_D_SIM: Mortalidade Diarreica - De 0 AtÈ 4 anos.#################
+################M05_D_SIM: Mortalidade Diarreica - De 0 At√© 4 anos.#################
 
 
 ################M06_N_SIM: Mortalidade Causas Externas ############################
@@ -349,7 +350,7 @@ q<-'{"size":0,
 
 
 
-################B06_N2_SIM: Mortalidade Hipertensao 50 atÈ 64 anos ############################
+################B06_N2_SIM: Mortalidade Hipertensao 50 at√© 64 anos ############################
 
 q<-'{"size":0, 
 "query":{ 
@@ -374,11 +375,11 @@ q<-'{"size":0,
   } 
 }
 }'
-################B06_N2_SIM: Mortalidade Hipertensao 50 atÈ 64 anos ############################
+################B06_N2_SIM: Mortalidade Hipertensao 50 at√© 64 anos ############################
 
 
 
-################B06_N_SIM: Mortalidade Hipertensao 20 atÈ 79 anos ############################
+################B06_N_SIM: Mortalidade Hipertensao 20 at√© 79 anos ############################
 
 q<-'{"size":0, 
 "query":{ 
@@ -403,37 +404,10 @@ q<-'{"size":0,
 } 
 }
 }'
-################B06_N_SIM: Mortalidade Hipertensao 20 atÈ 79 anos ############################
+################B06_N_SIM: Mortalidade Hipertensao 20 at√© 79 anos ############################
 
 
-################B07_N_SIM: Mortalidade Ira atÈ 4 anos ############################
-
-q<-'{"size":0, 
-"query":{ 
-"filtered":{ 
-"query":{
-"bool": { "should": [ {"wildcard": {"CAUSABAS":"J21*"}},
-{"wildcard": {"CAUSABAS":"J22*"}}
-]
-}
-},
-"filter":{"range":{"idade_obito":{ "gte":0, "lte":4 }}
-}
-}
-},
-"aggs":{ 
-"ano":{ 
-"terms":{"field":"res_codmun_adotado", "size":0, "order":{ "_term":"asc" } 
-}
-} 
-}
-}'
-################B07_N_SIM: Mortalidade Ira atÈ 4 anos ############################
-
-
-
-
-################B07_N_SIM: Mortalidade Ira atÈ 4 anos ############################
+################B07_N_SIM: Mortalidade Ira at√© 4 anos ############################
 
 q<-'{"size":0, 
 "query":{ 
@@ -455,10 +429,37 @@ q<-'{"size":0,
 } 
 }
 }'
-################B07_N_SIM: Mortalidade Ira atÈ 4 anos ############################
+################B07_N_SIM: Mortalidade Ira at√© 4 anos ############################
 
 
-################B16_N_SIM: Mortalidade Diabetes 20 atÈ 79 anos ############################
+
+
+################B07_N_SIM: Mortalidade Ira at√© 4 anos ############################
+
+q<-'{"size":0, 
+"query":{ 
+"filtered":{ 
+"query":{
+"bool": { "should": [ {"wildcard": {"CAUSABAS":"J21*"}},
+{"wildcard": {"CAUSABAS":"J22*"}}
+]
+}
+},
+"filter":{"range":{"idade_obito":{ "gte":0, "lte":4 }}
+}
+}
+},
+"aggs":{ 
+"ano":{ 
+"terms":{"field":"res_codmun_adotado", "size":0, "order":{ "_term":"asc" } 
+}
+} 
+}
+}'
+################B07_N_SIM: Mortalidade Ira at√© 4 anos ############################
+
+
+################B16_N_SIM: Mortalidade Diabetes 20 at√© 79 anos ############################
 
 q<-'{"size":0, 
 "query":{ 
@@ -483,7 +484,7 @@ q<-'{"size":0,
 } 
 }
 }'
-################B16_N_SIM: Mortalidade Diabetes 20 atÈ 79 anos ############################
+################B16_N_SIM: Mortalidade Diabetes 20 at√© 79 anos ############################
 
 
 
@@ -512,7 +513,7 @@ q<-'{"size":0,
 
 
 
-################B17_N_SIM: Mortalidade Materna 10 atÈ 49 anos ############################
+################B17_N_SIM: Mortalidade Materna 10 at√© 49 anos ############################
 
 q<-'{"size":0, 
 "query":{ 
@@ -534,4 +535,4 @@ q<-'{"size":0,
     } 
 }
 }'
-################B17_N_SIM: Mortalidade Materna 10 atÈ 49 anos ############################
+################B17_N_SIM: Mortalidade Materna 10 at√© 49 anos ############################
