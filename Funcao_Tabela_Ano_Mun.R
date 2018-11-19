@@ -1,4 +1,4 @@
- # Recebe o objeto agregado na orderm ANO e MUNICIPIO.
+# Recebe o objeto agregado na orderm ANO e MUNICIPIO.
 #faz um loop pelos dataframes e adiciona o ano
 #no passo seguinte a biblioteca data.table faz um unlist, deixando a base organizada
 #em um unico dataframe
