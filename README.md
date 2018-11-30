@@ -14,7 +14,10 @@ Na 20...Vejam que eu busco a seleção do "SIM" na pasta '~/Proadess/SIM/Selecoe
 source('~/Proadess/SIM/Selecoes_SIM.R')
 #######################################
 
-Na 30...O objeto Selecoes recebe o resultado do "Selecoes_SIM". 
+Na 30...O objeto Selecoes recebe o resultado do "Selecoes_SIM".
+Inicialmente, o objeto Selecoes será uma duplicação do "Selecoes_SIM", mas no futuro ele se tornará uma lista com as 
+seleções de todos os sistemas.
+
 Façam um similar "Selecoes_SIM" pra população, como o nome que desejarem, mas não equeçam de alterar a linha.
 
 ######################################
