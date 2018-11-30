@@ -18,6 +18,7 @@ source('~/Proadess/Funcao_Tabela_Ano_Mun.R')
 
 
 #Selecoes_SIM-queries
+#Traz o objeto Selecoes_SIM
 source('~/Proadess/SIM/Selecoes_SIM.R')
 
 
@@ -26,15 +27,17 @@ source('~/Proadess/SIM/Selecoes_SIM.R')
 #arquivo, com identificacao adequada. No momento, os testes serao feitos em cima do SIM
 #- no objeto "Selecoes_SIM"
 
+Selecoes<-Selecoes_SIM
+
 resultado<-NULL
 
-for (i in 1: dim(Selecoes_SIM)[[1]]){
+for (i in 1: dim(Selecoes)[[1]]){
   
   #A query atual no loop
-  q<-Selecoes_SIM[[2]][i]
+  q<-Selecoes[[2]][i]
   
   "O id da query atual"
-  indicador<-Selecoes_SIM[[1]][i]
+  indicador<-Selecoes[[1]][i]
   
   #Resultado da query
   resultado_query<-Search(index = "datasus-sim", body = q, asdf = TRUE, size = 0)
