@@ -50,3 +50,21 @@ write.csv2(Final_Num_CGR_PAGINA,"~/Proadess/Base_Final_Proadess/Base_Pagina_COLU
 
 #######################################################################################################
 
+
+#Passa as bases para o formato coluna
+#UF
+#RG
+#BR
+######################################################################################################
+Final_Num_UF_PAGINA<-dcast(Final_Num_UF, UF ~ Cod_indicador, value.var="Res_Ind")
+Final_Num_UF_PAGINA<-cbind(Final_Num_UF_PAGINA,"Falso"=1)
+
+Final_Num_RG_PAGINA<-dcast(Final_Num_RG, RG ~ Cod_indicador, value.var="Res_Ind")
+Final_Num_RG_PAGINA<-cbind(Final_Num_RG_PAGINA,"Falso"=1)
+
+Final_Num_BR_PAGINA<-dcast(Final_Num_BR, BR ~ Cod_indicador, value.var="Res_Ind")
+Final_Num_BR_PAGINA<-cbind(Final_Num_BR_PAGINA,"Falso"=1)
+#####################################################################################################
+
+
+
