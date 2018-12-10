@@ -13,6 +13,7 @@ rm(list=ls(all=TRUE))
 source('~/Proadess/2_Geracao_Selecoes.R')
 
 
+
 #Essas listas serão usadas para ditar uma lista padrão, pois a tabulação só trará municípios que possuem algum caso,
 #deixando de fora municípios que não possuem casos.
 #A nossa estrutura exibe, por padrão, todas os entes das abrangências.
