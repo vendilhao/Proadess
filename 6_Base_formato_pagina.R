@@ -138,6 +138,7 @@ write.csv2(Ficha_Secundaria_UF_RG_BR,"~/Proadess/Base_Final_Proadess/Ficha_Secun
 write.csv2(Ficha_Secundaria_CGR,"~/Proadess/Base_Final_Proadess/Ficha_Secundaria_CGR.csv",row.names=F,na="")
 #####################################################################################################
 
+
 ######################################################
 #Remoção de objetos
 rm(list = c('Cirs','Cirs_Nomes','Ficha_Selecao_Filtrada'))
