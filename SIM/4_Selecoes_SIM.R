@@ -1,5 +1,7 @@
 #Aqui monta-se um dataframe com as seleções do SIM, com o nome do indicador e a query, no objeto Selecoes_SIM
 
+#Script de origem:2_Geracao_Selecoes.R
+
 Selecoes_SIM <- NULL
 
 ################M01_N_SIM: Mortalidade infantil - com menos de um ano.################M
