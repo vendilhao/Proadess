@@ -1,12 +1,12 @@
 rm(list=ls(all=TRUE))
-#Gera os indicadores para o proadess
+#Gera os indicadores  para o proadess
 #Faz uso dos objetos de outra fonte, como: resultado(as queries geradas nos sistemas) e 
 #Ficha_Selecao_Filtrada(Ficha que traz somente os indicadores possíveis de serem feitos)
 #Objetos finais são as bases de dados, com os indicadores e códigos para posterior uso na página do Proadess.
-#Objeto Final1: Num_UF
-#Objeto Final2: Num_RG
-#Objeto Final3: Num_BR
-#Objeto Final4: Num_CGR
+#Objeto Final1: Final_Num_UF
+#Objeto Final2: Final_Num_RG
+#Objeto Final3: Final_Num_BR
+#Objeto Final4: Final_Num_CGR
 
 #Este script traz os objetos "Ficha_Selecao_Filtrada"(Ficha com os indicadores possíveis de serem feitos)
 #e "Resultado_Selecoes"(Base com resultado das queries)
@@ -18,7 +18,7 @@ source('~/Proadess/2_Geracao_Selecoes.R')
 #deixando de fora municípios que não possuem casos.
 #A nossa estrutura exibe, por padrão, todas os entes das abrangências.
 
-Cirs <- read.csv2('~/Proadess/Tabelas_auxiliares/Lista_Cirs.csv', stringsAsFactors = F,colClasses=c("Mun"="character"))
+Cirs <- read.csv2('~/Proadess/Tabelas_Auxiliares/Lista_Cirs.csv', stringsAsFactors = F,colClasses=c("Mun"="character"))
 Cirs<- Cirs[,-(3:7)]
 
 UF<-c(11,12,13,14,15,16,17,21,22,23,24,25,26,27,28,29,31,32,33,35,41,42,43,50,51,52,53)
@@ -255,7 +255,7 @@ write.csv2(Final_Num_BR,'~/Proadess/Base_Final_Proadess/Base_completa_LONG_BR.cs
 write.csv2(Final_Num_CGR,'~/Proadess/Base_Final_Proadess/Base_completa_LONG_CGR.csv', row.names=F)
 
 
-
+#Página PROADESS - Organiza bases e dicionários no padrão de importação da página
 ##########################################################################
 #Salva uma nova base com os padrões de importação da página do PROADESS
 source('~/Proadess/6_Base_formato_pagina.R')

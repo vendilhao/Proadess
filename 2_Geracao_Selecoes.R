@@ -1,9 +1,10 @@
-
-
 #Em sua forma final, o script deverá gerar uma base com resultado das consultas
 #de cada base de dados(sim, sinasc, pop...) para futuro RBIND.
 #Esta base final será consultada pela ficha dos indicadores, com as indicações
 #dos dados a serem utilizados.
+
+#Script de origem:1_Geracao_indicadores.R
+
 #Objeto Final1: Ficha_Selecao_Filtrada
 #Objeto FInal2: Resultado_Selecao
 
@@ -25,12 +26,12 @@ source('~/Proadess/3_Funcao_Tabela_Ano_Mun.R')
 
 
 
-
-
+#Seleções dos diferentes sistemas devem ser agregadas aqui
+#######################################################################################
 #Selecoes_SIM-queries
 #Traz o objeto Selecoes_SIM
 source('~/Proadess/SIM/4_Selecoes_SIM.R')
-
+#######################################################################################
 
 
 #Futuramente as bases de selecao dos diferentes sistemas podem ser reunidas em um unico

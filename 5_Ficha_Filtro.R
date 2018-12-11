@@ -2,11 +2,13 @@
 #A verificação só é váliva para o indicador, se ele é diferente de 1.
 #Gera-se uma ficha filtrada, só com o que será tabulado
 
+#Script de origem:2_Geracao_Selecoes.R
+
 #O Objeto "Selecoes" é usado para comparações.
 #Objeto Final1: Ficha_Selecao_Filtrada
 #Objeto FInal2: Ficha_Selecao_Filtrada_Nome
 
-Ficha_Selecao <-read.csv2('~/Proadess/Tabelas_auxiliares/Lista_test.csv', colClasses=c("Ag_ESCOLARIDADE"="character","Ag_IDADE"="character"), stringsAsFactors = F)
+Ficha_Selecao <-read.csv2('~/Proadess/Tabelas_Auxiliares/Lista_test.csv', colClasses=c("Ag_ESCOLARIDADE"="character","Ag_IDADE"="character"), stringsAsFactors = F)
 
 N_indicadores <-dim(Ficha_Selecao)[1]
 
